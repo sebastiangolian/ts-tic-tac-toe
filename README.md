@@ -1,6 +1,6 @@
 # typescript-playground
 
-# Getting started
+## Getting started
 ```bash
 npm install
 ```
