@@ -1,9 +1,9 @@
 # typescript-playground
 
 # Getting started
-- Install dependencies
+- Install dependencies<br />
 npm install
-- Bulid
+- Bulid<br />
 npm run build
-- Start
+- Start<br />
 npm start
