@@ -5,7 +5,8 @@
   "main": "js\\index.js",
   "scripts": {
     "start": "node js\\index.js",
-    "bulid": "tsc"
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "keywords": [
     "typescript",
