@@ -1,7 +1,19 @@
 # typescript-playground
 
 # Getting started
-- Install dependencies -- npm install
-- Watch -- npm run watch
-- Bulid -- npm run build
-- Start -- npm start
+- Install dependencies
+```bash
+npm install
+```
+- Watch
+```bash
+npm run watch
+```
+- Bulid 
+```bash
+npm run build
+```
+- Start
+```bash
+npm start
+```
