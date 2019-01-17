@@ -1,2 +1,6 @@
 console.log("========== TYPESCRIPT-PLAYGROUND =================")
-document.body.innerHTML += "<p>hello world</p>";
+
+function click(i: number)
+{
+    alert(i);
+}
