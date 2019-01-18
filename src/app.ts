@@ -1,6 +1,8 @@
+import { Board } from "./classes/board.js";
+
 console.log("========== TYPESCRIPT-PLAYGROUND =================")
 
-function click(i: number)
-{
-    alert(i);
-}
+const cellElements: HTMLCollectionOf<Element> = document.getElementsByClassName('cell');
+
+let board = new Board(cellElements);
+console.log(board.getCells());

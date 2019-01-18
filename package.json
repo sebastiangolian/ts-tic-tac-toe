@@ -1,20 +1,23 @@
 {
-  "name": "playground_typescript",
+  "name": "ts-tic-tac-toe",
   "version": "1.0.0",
-  "description": "",
-  "main": "js\\index.js",
+  "description": "Test aplication with typescript",
+  "main": "index.html",
   "scripts": {
-    "start": "node js\\index.js",
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc --w",
+    "rmdir": "rmdir /s /q \"js/classes\" \"js\"",
+    "clear": "npm run rmdir && npm run watch"
   },
-  "keywords": [
-    "typescript",
-    "playground"
-  ],
-  "author": "sebastiangolian@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastiangolian/ts-tic-tac-toe.git"
+  },
+  "keywords": ["typescript","game","tic","tac","top"],
+  "author": "sebastiangolian <sebastiangolian@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "typescript": "^3.2.2"
-  }
+  "bugs": {
+    "url": "https://github.com/sebastiangolian/ts-tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/sebastiangolian/ts-tic-tac-toe#readme"
 }

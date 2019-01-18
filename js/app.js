@@ -1,5 +1,5 @@
-"use strict";
+import { Board } from "./classes/board.js";
 console.log("========== TYPESCRIPT-PLAYGROUND =================");
-function click(i) {
-    alert(i);
-}
+const cellElements = document.getElementsByClassName('cell');
+let board = new Board(cellElements);
+console.log(board.getCells());

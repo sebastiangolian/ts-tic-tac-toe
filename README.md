@@ -10,6 +10,3 @@ npm run watch
 ```bash
 npm run build
 ```
-```bash
-npm start
-```
