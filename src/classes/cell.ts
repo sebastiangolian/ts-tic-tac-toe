@@ -1,9 +1,22 @@
+import { Board } from "./board.js";
+
 export class Cell {
-   element: Element;
+   private status:number = 0;
+   private board:Board = new Board();
+   private element: Element;
 
    constructor(element: Element) {
       this.element = element;
       this.addClickEvent();
+   }
+
+   setBoard(board:Board)
+   {
+      this.board = board;
+   }
+
+   getStatus(): number {
+      return this.status;
    }
 
    addClickEvent(): void {
@@ -13,6 +26,10 @@ export class Cell {
    }
 
    eventClick(): void {
-      console.log("Name is  :   " + this.element.id)
+      if(this.status == 0){
+         this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]"
+         this.status = 1;
+         this.board.update();
+      }
    }
 }
