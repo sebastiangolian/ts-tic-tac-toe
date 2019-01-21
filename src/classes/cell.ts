@@ -1,22 +1,31 @@
-import { Board } from "./board.js";
+import { Board } from "./Board.js";
 
 export class Cell {
    private status:number = 0;
-   private board:Board = new Board();
+   private board:Board;
    private element: Element;
 
-   constructor(element: Element) {
+   constructor(element: Element, board: Board) {
       this.element = element;
-      this.addClickEvent();
-   }
-
-   setBoard(board:Board)
-   {
       this.board = board;
+      this.addClickEvent();
    }
 
    getStatus(): number {
       return this.status;
+   }
+
+   setStatus(status:number) {
+      this.status = status;
+
+      if(this.status == 0)
+         this.element.innerHTML = "[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]";
+
+      if(this.status == 1)
+         this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]";
+
+      if(this.status == 2)
+         this.element.innerHTML = "[&nbsp;&nbsp;O&nbsp;&nbsp;]";
    }
 
    addClickEvent(): void {

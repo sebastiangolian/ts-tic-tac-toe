@@ -1,8 +1,10 @@
-import { Cell } from "./cell.js";
+import { Cell } from "./Cell.js";
+import { CheckWin } from "./CheckWin.js";
+import { MoveComputer } from "./MoveComputer.js";
 export class Board {
-    constructor() {
-        this.msgElement = null;
+    constructor(msg) {
         this.cells = new Array();
+        this.msg = msg;
     }
     addCells(elements) {
         if (elements.length != 9) {
@@ -10,33 +12,44 @@ export class Board {
         }
         const l = elements.length;
         for (var i = 0; i < l; i++) {
-            let cell = new Cell(elements[i]);
-            cell.setBoard(this);
+            let cell = new Cell(elements[i], this);
             this.cells.push(cell);
         }
     }
     getCells() {
         return this.cells;
     }
-    setMsgElement(element) {
-        this.msgElement = element;
+    getCurrentStatus() {
+        let result = new Array(9);
+        this.cells.forEach(function (cell) {
+            result.push(cell.getStatus());
+        });
+        return result;
     }
     update() {
-        if (this.msgElement instanceof HTMLElement) {
-            if (this.checkWin()) {
-                this.msgElement.innerHTML = "Wygrałeś. Gratulacje.";
+        if (this.checkWin(1)) {
+            this.msg.setText("Wygrałeś. Gratulacje.");
+        }
+        else {
+            if (this.checkWin(2)) {
+                this.msg.setText("Przegrałeś. Spróbuj jeszcze raz.");
             }
             else {
-                this.msgElement.innerHTML = "Zaznaczono element";
+                this.msg.setText("Zaznaczono element");
+                this.moveComputer();
             }
         }
     }
-    checkWin() {
-        if (this.cells[0].getStatus() == 1 && this.cells[1].getStatus() == 1 && this.cells[2].getStatus() == 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    checkWin(player) {
+        let currentStatusArray = new Array();
+        this.cells.forEach(function (cell) {
+            currentStatusArray.push(cell.getStatus() == player);
+        });
+        let checkWin = new CheckWin(currentStatusArray);
+        return checkWin.check();
+    }
+    moveComputer() {
+        let cellNumber = new MoveComputer(this.getCurrentStatus()).move();
+        this.cells[cellNumber].setStatus(2);
     }
 }

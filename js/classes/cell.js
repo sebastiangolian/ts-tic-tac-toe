@@ -1,16 +1,21 @@
-import { Board } from "./board.js";
 export class Cell {
-    constructor(element) {
+    constructor(element, board) {
         this.status = 0;
-        this.board = new Board();
         this.element = element;
-        this.addClickEvent();
-    }
-    setBoard(board) {
         this.board = board;
+        this.addClickEvent();
     }
     getStatus() {
         return this.status;
+    }
+    setStatus(status) {
+        this.status = status;
+        if (this.status == 0)
+            this.element.innerHTML = "[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]";
+        if (this.status == 1)
+            this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]";
+        if (this.status == 2)
+            this.element.innerHTML = "[&nbsp;&nbsp;O&nbsp;&nbsp;]";
     }
     addClickEvent() {
         this.element.addEventListener('click', () => {
