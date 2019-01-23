@@ -1,11 +1,11 @@
-import { Board } from "./Board.js";
+import { GameBoard } from "./GameBoard.js";
 
 export class Cell {
    private status: number = 0;
-   private board: Board;
+   private board: GameBoard;
    private element: Element;
 
-   constructor(element: Element, board: Board) {
+   constructor(element: Element, board: GameBoard) {
       this.element = element;
       this.board = board;
       this.addClickEvent();

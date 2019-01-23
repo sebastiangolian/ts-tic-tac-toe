@@ -3,7 +3,7 @@ import { Msg } from "./Msg.js";
 import { CheckWin } from "./CheckWin.js";
 import { MoveComputer } from "./MoveComputer.js";
 
-export class Board{
+export class GameBoard{
     msg: Msg;
     cells: Array<Cell> = new Array<Cell>();
     locked: boolean = false;
