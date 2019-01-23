@@ -5,10 +5,7 @@ export class MoveComputer {
         this.cellStates = cellStates;
         this.winLines = TicTacToeRulse.getWinLines();
     }
-    randomNumber() {
-        return Math.floor(Math.random() * 8);
-    }
-    posibleMove() {
+    isPosibleMove() {
         let ret = !this.cellStates.every((element) => {
             return (element > 0);
         });
@@ -18,7 +15,7 @@ export class MoveComputer {
         let ret = -1;
         let check = false;
         do {
-            let randomNumber = this.randomNumber();
+            let randomNumber = Math.floor(Math.random() * 8);
             if (this.cellStates[randomNumber] == 0) {
                 ret = randomNumber;
                 check = false;
@@ -26,26 +23,10 @@ export class MoveComputer {
             else {
                 check = true;
             }
-            if (!this.posibleMove()) {
+            if (!this.isPosibleMove()) {
                 check = false;
             }
         } while (check);
-        return ret;
-    }
-    moveWinLine() {
-        return this.checkWinLine(2);
-    }
-    moveBlockLine() {
-        return this.checkWinLine(1);
-    }
-    move() {
-        let ret = -1;
-        if (ret == -1)
-            ret = this.moveWinLine();
-        if (ret == -1)
-            ret = this.moveBlockLine();
-        if (ret == -1)
-            ret = this.moveRandom();
         return ret;
     }
     checkWinLine(player) {
@@ -67,5 +48,16 @@ export class MoveComputer {
             }
         });
         return result;
+    }
+    move() {
+        let ret = -1;
+        if (ret == -1)
+            ret = this.checkWinLine(2);
+        ;
+        if (ret == -1)
+            ret = this.checkWinLine(1);
+        if (ret == -1)
+            ret = this.moveRandom();
+        return ret;
     }
 }

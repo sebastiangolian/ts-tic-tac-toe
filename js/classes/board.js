@@ -1,62 +1,36 @@
-import { BoardCell } from "./BoardCell.js";
 import { CheckWin } from "./CheckWin.js";
 import { MoveComputer } from "./MoveComputer.js";
+import { BoardCells } from "./BoardCells.js";
 export class Board {
     constructor(msg) {
-        this.cells = new Array();
         this.locked = false;
         this.msg = msg;
-    }
-    addCells(elements) {
-        if (elements.length != 9) {
-            console.log("CellIds array length must by 9.");
-        }
-        const l = elements.length;
-        for (var i = 0; i < l; i++) {
-            let cell = new BoardCell(elements[i], this);
-            this.cells.push(cell);
-        }
-    }
-    getCells() {
-        return this.cells;
-    }
-    lockCells() {
-        this.cells.forEach((cell) => {
-            cell.removeClickEvent();
-        });
-        this.locked = true;
-    }
-    getCellStatuses() {
-        let result = new Array();
-        this.cells.forEach(function (cell) {
-            result.push(cell.getStatus());
-        });
-        return result;
+        this.boardCells = new BoardCells(this);
     }
     checkWin(player) {
         let currentStatusArray = new Array();
-        this.cells.forEach(function (cell) {
+        this.boardCells.getCells().forEach(function (cell) {
             currentStatusArray.push(cell.getStatus() == player);
         });
         let checkResult = new CheckWin(currentStatusArray).check();
         if (player == 1 && checkResult) {
             this.msg.setText("Wygrałeś. Gratulacje.");
-            this.lockCells();
+            this.boardCells.lockCells();
         }
         if (player == 2 && checkResult) {
             this.msg.setText("Przegrałeś. Spróbuj jeszcze raz.");
-            this.lockCells();
+            this.boardCells.lockCells();
         }
         return checkResult;
     }
     moveComputer() {
-        let cellNumber = new MoveComputer(this.getCellStatuses()).move();
+        let cellNumber = new MoveComputer(this.boardCells.getCellStatuses()).move();
         if (cellNumber == -1) {
             this.msg.setText("REMIS");
-            this.lockCells();
+            this.boardCells.lockCells();
         }
         else {
-            this.cells[cellNumber].setStatus(2);
+            this.boardCells.getCells()[cellNumber].setStatus(2);
         }
     }
     update() {

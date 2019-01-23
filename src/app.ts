@@ -1,6 +1,5 @@
 import { Board } from "./classes/Board.js";
 import { BoardMsg } from "./classes/BoardMsg.js";
-import { CheckWin } from "./classes/CheckWin.js";
 
 console.log("========== TYPESCRIPT-PLAYGROUND =================")
 
