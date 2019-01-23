@@ -1,4 +1,4 @@
-export class Msg{
+export class BoardMsg{
     private element: HTMLElement;
     private text:string = "";
     

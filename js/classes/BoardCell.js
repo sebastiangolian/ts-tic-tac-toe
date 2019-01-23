@@ -1,4 +1,4 @@
-export class Cell {
+export class BoardCell {
     constructor(element, board) {
         this.status = 0;
         this.element = element;

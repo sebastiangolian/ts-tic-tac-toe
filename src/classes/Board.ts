@@ -1,14 +1,14 @@
-import { Cell } from "./Cell.js";
-import { Msg } from "./Msg.js";
+import { BoardCell } from "./BoardCell.js";
+import { BoardMsg } from "./BoardMsg.js";
 import { CheckWin } from "./CheckWin.js";
 import { MoveComputer } from "./MoveComputer.js";
 
-export class GameBoard{
-    msg: Msg;
-    cells: Array<Cell> = new Array<Cell>();
+export class Board{
+    msg: BoardMsg;
+    cells: Array<BoardCell> = new Array<BoardCell>();
     locked: boolean = false;
 
-    constructor(msg: Msg) {
+    constructor(msg: BoardMsg) {
         this.msg = msg;
     }
 
@@ -19,12 +19,12 @@ export class GameBoard{
 
         const l = elements.length;
         for (var i = 0; i < l; i++) {
-            let cell = new Cell(elements[i], this);
+            let cell = new BoardCell(elements[i], this);
             this.cells.push(cell);
         }
     }
 
-    getCells(): Array<Cell> {
+    getCells(): Array<BoardCell> {
         return this.cells;
     }
 

@@ -1,4 +1,4 @@
-import { Cell } from "./Cell.js";
+import { BoardCell } from "./BoardCell.js";
 import { CheckWin } from "./CheckWin.js";
 import { MoveComputer } from "./MoveComputer.js";
 export class Board {
@@ -13,7 +13,7 @@ export class Board {
         }
         const l = elements.length;
         for (var i = 0; i < l; i++) {
-            let cell = new Cell(elements[i], this);
+            let cell = new BoardCell(elements[i], this);
             this.cells.push(cell);
         }
     }

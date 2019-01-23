@@ -1,4 +1,4 @@
-export class Msg {
+export class BoardMsg {
     constructor(element) {
         this.text = "";
         this.element = element;
