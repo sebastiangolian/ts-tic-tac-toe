@@ -47,6 +47,4 @@ export class Cell {
          this.board.update();
       }
    }
-
-
 }

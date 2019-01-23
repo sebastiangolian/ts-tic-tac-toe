@@ -1,17 +1,9 @@
+import { TicTacToeRulse } from "./TicTacToeRules.js";
 export class MoveComputer {
     constructor(cellStates) {
         this.cellStates = new Array();
-        this.opponentLines = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ];
         this.cellStates = cellStates;
+        this.winLines = TicTacToeRulse.getWinLines();
     }
     randomNumber() {
         return Math.floor(Math.random() * 8);
@@ -40,26 +32,40 @@ export class MoveComputer {
         } while (check);
         return ret;
     }
+    moveWinLine() {
+        return this.checkWinLine(2);
+    }
     moveBlockLine() {
+        return this.checkWinLine(1);
+    }
+    move() {
+        let ret = -1;
+        if (ret == -1)
+            ret = this.moveWinLine();
+        if (ret == -1)
+            ret = this.moveBlockLine();
+        if (ret == -1)
+            ret = this.moveRandom();
+        return ret;
+    }
+    checkWinLine(player) {
         let result = -1;
-        this.opponentLines.forEach((array) => {
+        this.winLines.forEach((line) => {
             let check = 0;
-            let line = array;
-            array.forEach((value) => {
-                if (this.cellStates[value] == 1) {
+            line.forEach((value) => {
+                if (this.cellStates[value] == player) {
+                    line = line.filter((element) => {
+                        return (element != value);
+                    });
                     check += 1;
                 }
             });
             if (check == 2) {
-                console.log('!!!!! linia');
+                if (this.cellStates[line[0]] == 0) {
+                    result = line[0];
+                }
             }
         });
         return result;
-    }
-    move() {
-        let ret = -1;
-        this.moveBlockLine();
-        ret = this.moveRandom();
-        return ret;
     }
 }

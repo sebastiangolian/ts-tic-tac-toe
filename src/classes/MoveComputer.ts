@@ -1,19 +1,13 @@
+import { TicTacToeRulse } from "./TicTacToeRules.js";
+
 export class MoveComputer {
     private cellStates: number[] = new Array();
-    private opponentLines: number[][] = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
+    private winLines: number[][];
 
     constructor(cellStates: number[]) 
     {
         this.cellStates = cellStates;
+        this.winLines = TicTacToeRulse.getWinLines();
     }
 
     randomNumber(): number
@@ -55,35 +49,46 @@ export class MoveComputer {
         return ret;
     }
 
+    moveWinLine(): number
+    {
+        return this.checkWinLine(2);
+    }
+
     moveBlockLine(): number
     {
-        let result: number = -1;
-        this.opponentLines.forEach((array) => {
-            let check = 0;
-            let line:number[] = array;
-            
-            array.forEach((value) => {
-                if(this.cellStates[value] == 1){
-                    check += 1;
-                }
-            })
-
-            if(check == 2) {
-                console.log('!!!!! linia');
-            }
-        })
-        return result;
+        return this.checkWinLine(1);
     }
 
     move(): number 
     {
         let ret:number = -1;
-
-        this.moveBlockLine();
-        ret = this.moveRandom();
-        
-
+        if(ret == -1) ret = this.moveWinLine();
+        if(ret == -1) ret = this.moveBlockLine();
+        if(ret == -1) ret = this.moveRandom();
         return ret;
     }
-    
+
+    checkWinLine(player:number):number{
+        let result: number = -1;
+        this.winLines.forEach((line) => {
+            let check = 0;
+            line.forEach((value) => {
+                if(this.cellStates[value] == player){
+                    line = line.filter((element) => 	
+                    {
+                        return (element != value)
+                    });
+                    check += 1;
+                }
+            })
+
+            if(check == 2) {
+                if(this.cellStates[line[0]] == 0)
+                {
+                    result = line[0];
+                }
+            }
+        })
+        return result;
+    }
 }
