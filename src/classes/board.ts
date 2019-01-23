@@ -6,6 +6,7 @@ import { MoveComputer } from "./MoveComputer.js";
 export class Board{
     msg: Msg;
     cells: Array<Cell> = new Array<Cell>();
+    locked: boolean = false;
 
     constructor(msg: Msg) {
         this.msg = msg;
@@ -27,8 +28,15 @@ export class Board{
         return this.cells;
     }
 
-    getCurrentStatus(): number[] {
-        let result:number[] = new Array(9);
+    lockCells(): void {
+        this.cells.forEach((cell)=>{
+            cell.removeClickEvent();
+        })
+        this.locked = true;
+    }
+
+    getCellStatuses(): number[] {
+        let result:number[] = new Array();
         this.cells.forEach(function (cell) {
             result.push(cell.getStatus());
         })
@@ -36,34 +44,40 @@ export class Board{
         return result;
     }
 
-    update(): void {
-        if (this.checkWin(1)) {
-            this.msg.setText("Wygrałeś. Gratulacje.");
-        }
-        else {
-            if (this.checkWin(2)) {
-                this.msg.setText("Przegrałeś. Spróbuj jeszcze raz.");
-            }
-            else {
-                this.msg.setText("Zaznaczono element");
-                this.moveComputer();
-            }
-        }
-    }
-
     checkWin(player:number): boolean {
-        
         let currentStatusArray:boolean[] = new Array();
         this.cells.forEach(function (cell) {
             currentStatusArray.push(cell.getStatus() == player);
         });
 
-        let checkWin = new CheckWin(currentStatusArray);
-        return checkWin.check();
+        let checkResult = new CheckWin(currentStatusArray).check();
+
+        if (player == 1 && checkResult) {
+            this.msg.setText("Wygrałeś. Gratulacje.");
+            this.lockCells();
+        }
+
+        if (player == 2 && checkResult) {
+            this.msg.setText("Przegrałeś. Spróbuj jeszcze raz.");
+            this.lockCells();
+        }
+        return checkResult;
     }
 
     moveComputer() {
-        let cellNumber:number = new MoveComputer(this.getCurrentStatus()).move();
-        this.cells[cellNumber].setStatus(2);
+        let cellNumber:number = new MoveComputer(this.getCellStatuses()).move();
+        if(cellNumber == -1){
+            this.msg.setText("REMIS");
+            this.lockCells();
+        }
+        else{
+            this.cells[cellNumber].setStatus(2);
+        }
+    }
+
+    update(): void {
+        this.checkWin(1);
+        if(!this.locked) this.moveComputer();
+        this.checkWin(2);
     }
 }

@@ -22,6 +22,11 @@ export class Cell {
             this.eventClick();
         });
     }
+    removeClickEvent() {
+        let cloneNode = this.element.cloneNode(true);
+        if (this.element.parentNode)
+            this.element.parentNode.replaceChild(cloneNode, this.element);
+    }
     eventClick() {
         if (this.status == 0) {
             this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]";
