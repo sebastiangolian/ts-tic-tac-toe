@@ -16,7 +16,8 @@ export class BoardCells {
 
         const l = elements.length;
         for (var i = 0; i < l; i++) {
-            let cell = new BoardCell(elements[i], this.board);
+            let element = elements[i] as HTMLImageElement
+            let cell = new BoardCell(element, this.board);
             this.cells.push(cell);
         }
     }

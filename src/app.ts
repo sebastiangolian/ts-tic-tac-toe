@@ -1,9 +1,8 @@
 import { Board } from "./classes/Board.js";
 import { BoardMsg } from "./classes/BoardMsg.js";
 
-console.log("========== TYPESCRIPT-PLAYGROUND =================")
-
-const cellElements: HTMLCollectionOf<Element> = document.getElementsByClassName('cell');
+//const cellElements: HTMLCollectionOf<HTMLImageElement> = document.getElementsByClassName('cell');
+const cellElements = document.getElementsByClassName('symbols') as HTMLCollectionOf<HTMLImageElement>;
 const msgElement: HTMLElement|any = document.getElementById("msg");
 
 if(msgElement){

@@ -3,9 +3,9 @@ import { Board } from "./Board.js";
 export class BoardCell {
    private status: number = 0;
    private board: Board;
-   private element: Element;
+   private element: HTMLImageElement;
 
-   constructor(element: Element, board: Board) {
+   constructor(element: HTMLImageElement, board: Board) {
       this.element = element;
       this.board = board;
       this.addClickEvent();
@@ -19,32 +19,29 @@ export class BoardCell {
       this.status = status;
 
       if (this.status == 0)
-         this.element.innerHTML = "[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]";
+         this.element.src = "images/null.png";
 
       if (this.status == 1)
-         this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]";
+         this.element.src = "images/x.png";
 
       if (this.status == 2)
-         this.element.innerHTML = "[&nbsp;&nbsp;O&nbsp;&nbsp;]";
+         this.element.src = "images/o.png";
    }
 
    addClickEvent(): void {
-      this.element.addEventListener('click', () => {
-         this.eventClick()
-      });
+      this.element.addEventListener('click', this.eventClick);
    }
 
    removeClickEvent(): void {
-      let cloneNode = this.element.cloneNode(true);
-      if(this.element.parentNode)
-         this.element.parentNode.replaceChild(cloneNode, this.element);
+      this.element.removeEventListener('click', this.eventClick);
    }
 
-   eventClick(): void {
+   //event method
+   eventClick = () => {
       if (this.status == 0) {
-         this.element.innerHTML = "[&nbsp;&nbsp;X&nbsp;&nbsp;]"
+         this.element.src = "images/x.png";
          this.status = 1;
          this.board.update();
       }
-   }
+  }
 }
