@@ -6,5 +6,5 @@ const msgElement = document.getElementById("msg");
 if (msgElement) {
     let msg = new BoardMsg(msgElement);
     let board = new Board(msg);
-    board.addCells(cellElements);
+    board.boardCells.addCells(cellElements);
 }
