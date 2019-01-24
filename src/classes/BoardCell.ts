@@ -28,6 +28,11 @@ export class BoardCell {
          this.element.src = "images/o.png";
    }
 
+   reset(): void {
+      this.setStatus(0);
+      this.addClickEvent();
+   }
+
    addClickEvent(): void {
       this.element.addEventListener('click', this.eventClick);
    }

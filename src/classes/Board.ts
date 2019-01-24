@@ -10,6 +10,7 @@ export class Board{
 
     constructor(msg: BoardMsg) {
         this.msg = msg;
+        this.msg.setText(BoardMsg.TEXT_START);
         this.boardCells = new BoardCells(this);
     }
 
@@ -22,12 +23,12 @@ export class Board{
         let checkResult = new CheckWin(currentStatusArray).check();
 
         if (player == 1 && checkResult) {
-            this.msg.setText("Wygrałeś. Gratulacje.");
+            this.msg.setText(BoardMsg.TEXT_WIN);
             this.boardCells.lockCells();
         }
 
         if (player == 2 && checkResult) {
-            this.msg.setText("Przegrałeś. Spróbuj jeszcze raz.");
+            this.msg.setText(BoardMsg.TEXT_LOSE);
             this.boardCells.lockCells();
         }
         return checkResult;
@@ -36,7 +37,7 @@ export class Board{
     moveComputer() {
         let cellNumber:number = new MoveComputer(this.boardCells.getCellStatuses()).move();
         if(cellNumber == -1){
-            this.msg.setText("REMIS");
+            this.msg.setText(BoardMsg.TEXT_DRAW);
             this.boardCells.lockCells();
         }
         else{
@@ -48,5 +49,13 @@ export class Board{
         this.checkWin(1);
         if(!this.locked) this.moveComputer();
         this.checkWin(2);
+    }
+
+    reset(): void {
+        this.msg.setText(BoardMsg.TEXT_START);
+        this.boardCells.getCells().forEach((cell)=> {
+            cell.reset();
+        })
+        this.locked = false;
     }
 }

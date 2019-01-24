@@ -11,15 +11,15 @@
   <title>typescript-playground</title>
 </head>
 <body>
-  <div class="row">
+  <div class="row mt-1">
     <div class="col-md-4"></div>
-    <div class="col-md-4"><h1>ts-tic-tac-toe</h1></div>
+    <div class="col-md-4"><img src="images/tic-tac-toe-mini.png" width="400" class="ml-100" /></div>
     <div class="col-md-4"></div>
   </div>
 
   <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4" id="msg">Zacznij grę klikając w dowolne pole</div>
+    <div class="col-md-4"><p class="text-primary mt-5" id="msg"></p></div>
     <div class="col-md-4"></div>
   </div>
 
@@ -44,30 +44,22 @@
         </tr>
       </table>
     </div>
+    <div class="col-md-4">
+        <p class="text-primary" id="msg">STATISTICS</p>
+        <p class="text-primary" id="msg">Win: <span id="win"></span></p>
+        <p class="text-primary" id="msg">Draw: <span id="draw"></span></p>
+        <p class="text-primary" id="msg">Lose: <span id="lose"></span></p>
+    </div>
+  </div>
+
+<div class="row mt-2">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button id="try-again" type="button" class="btn btn-primary">Try again</button>
+    </div>
     <div class="col-md-4"></div>
   </div>
 
-  <!-- <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-1 cell"><img id="cell-1" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-2" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-3" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-4"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-1 cell"><img id="cell-4" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-5" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-6" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-4"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-1 cell"><img id="cell-7" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-8" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-1 cell"><img id="cell-9" class="symbols" src="images/null.png" /></div>
-    <div class="col-md-4"></div>
-  </div> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
