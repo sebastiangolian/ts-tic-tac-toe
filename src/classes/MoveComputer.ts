@@ -21,6 +21,18 @@ export class MoveComputer {
         return ret;
     }
 
+    moveFirst():number 
+    {
+        let ret:number = -1;
+        if(this.cellStates[4] == 1)
+        {
+            let possibleMove:number[] = [0, 2, 6, 7]; 
+            ret = possibleMove[Math.floor(Math.random() * possibleMove.length)];
+        }
+
+        return ret;
+    }
+
     moveRandom():number 
     {
         let ret:number = -1;
@@ -71,6 +83,7 @@ export class MoveComputer {
     move(): number 
     {
         let ret:number = -1;
+        if(ret == -1) ret = this.moveFirst();
         if(ret == -1) ret = this.checkWinLine(2);
         if(ret == -1) ret = this.checkWinLine(1);
         if(ret == -1) ret = this.moveRandom();
