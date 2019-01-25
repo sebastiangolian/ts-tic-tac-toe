@@ -2,6 +2,7 @@ import { BoardMsg } from "./BoardMsg.js";
 import { CheckWin } from "./CheckWin.js";
 import { MoveComputer } from "./MoveComputer.js";
 import { BoardCells } from "./BoardCells.js";
+import { Statistics, StatisticsStorage } from "./Statistics.js";
 
 export class Board{
     msg: BoardMsg;
@@ -24,11 +25,13 @@ export class Board{
 
         if (player == 1 && checkResult) {
             this.msg.setText(BoardMsg.TEXT_WIN);
+            Statistics.getInstance().update(StatisticsStorage.WIN);
             this.boardCells.lockCells();
         }
 
         if (player == 2 && checkResult) {
             this.msg.setText(BoardMsg.TEXT_LOSE);
+            Statistics.getInstance().update(StatisticsStorage.LOSE);
             this.boardCells.lockCells();
         }
         return checkResult;
@@ -38,6 +41,7 @@ export class Board{
         let cellNumber:number = new MoveComputer(this.boardCells.getCellStatuses()).move();
         if(cellNumber == -1){
             this.msg.setText(BoardMsg.TEXT_DRAW);
+            Statistics.getInstance().update(StatisticsStorage.DRAW);
             this.boardCells.lockCells();
         }
         else{

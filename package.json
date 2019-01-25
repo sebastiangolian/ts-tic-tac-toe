@@ -13,11 +13,20 @@
     "type": "git",
     "url": "git+https://github.com/sebastiangolian/ts-tic-tac-toe.git"
   },
-  "keywords": ["typescript","game","tic","tac","top"],
+  "keywords": [
+    "typescript",
+    "game",
+    "tic",
+    "tac",
+    "top"
+  ],
   "author": "sebastiangolian <sebastiangolian@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastiangolian/ts-tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/sebastiangolian/ts-tic-tac-toe#readme"
+  "homepage": "https://github.com/sebastiangolian/ts-tic-tac-toe#readme",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

@@ -1,19 +1,8 @@
-.cell{
-    font-size:20px;
-    min-height: 50px; 
-    height:auto !important; 
-    height: 70px; 
-    cursor: grab;
-}
-.symbols{
-    width:125px;
-}
-h1{
-    height:100px;
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", 
+    "Segoe UI Emoji", "Segoe UI Symbol"
 }
 td{
     border:3px solid black;
-}
-#msg{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 }
