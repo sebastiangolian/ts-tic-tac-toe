@@ -1,9 +1,12 @@
 export class BoardCell {
     constructor(element, board) {
         this.status = 0;
+        this.nullSrc = "public/images/null.png";
+        this.xSrc = "public/images/x.png";
+        this.oSrc = "public/images/o.png";
         this.eventClick = () => {
             if (this.status == 0) {
-                this.element.src = "images/x.png";
+                this.element.src = this.nullSrc;
                 this.status = 1;
                 this.board.update();
             }
@@ -18,11 +21,11 @@ export class BoardCell {
     setStatus(status) {
         this.status = status;
         if (this.status == 0)
-            this.element.src = "images/null.png";
+            this.element.src = this.nullSrc;
         if (this.status == 1)
-            this.element.src = "images/x.png";
+            this.element.src = this.xSrc;
         if (this.status == 2)
-            this.element.src = "images/o.png";
+            this.element.src = this.oSrc;
     }
     reset() {
         this.setStatus(0);
