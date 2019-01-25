@@ -7,7 +7,7 @@ export class BoardCell {
         this.eventClick = () => {
             if (this.status == 0) {
                 this.element.src = this.nullSrc;
-                this.status = 1;
+                this.setStatus(1);
                 this.board.update();
             }
         };
