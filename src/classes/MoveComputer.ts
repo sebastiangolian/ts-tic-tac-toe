@@ -10,6 +10,15 @@ export class MoveComputer {
         this.winLines = TicTacToeRulse.getWinLines();
     }
 
+    numberMove(): number 
+    {
+        let numberTwo = this.cellStates.filter((element) => 	
+        {
+            return (element == 2)
+        });
+        return numberTwo.length;
+    }
+
     isPosibleMove(): boolean
     {
         let ret: boolean = 
@@ -24,11 +33,46 @@ export class MoveComputer {
     moveFirst():number 
     {
         let ret:number = -1;
-        if(this.cellStates[4] == 1)
-        {
-            let possibleMove:number[] = [0, 2, 6, 7]; 
-            ret = possibleMove[Math.floor(Math.random() * possibleMove.length)];
-        }
+
+        do { 
+            let possibleMove:number[] = [0, 2, 6, 8]; 
+            let rand = possibleMove[Math.floor(Math.random() * possibleMove.length)];
+            if(this.cellStates[rand] == 0){
+                ret = rand;
+            }
+        } while(ret == -1);
+            
+        return ret;
+    }
+
+    moveSecound():number 
+    {
+        let posibleSecoundMove: number[][] = [
+            [0, 2],
+            [0, 6],
+            [2, 8],
+            [6, 8]
+        ];
+        let ret:number = -1;
+        posibleSecoundMove.forEach((line) => {
+            let check = 0;
+            line.forEach((value) => {
+                if(this.cellStates[value] == 2){
+                    line = line.filter((element) => 	
+                    {
+                        return (element != value)
+                    });
+                    check += 1;
+                }
+            })
+
+            if(check == 1) {
+                if(this.cellStates[line[0]] == 0)
+                {
+                    ret = line[0];
+                }
+            }
+        })
 
         return ret;
     }
@@ -83,7 +127,8 @@ export class MoveComputer {
     move(): number 
     {
         let ret:number = -1;
-        if(ret == -1) ret = this.moveFirst();
+        if(ret == -1 && this.numberMove() == 0) ret = this.moveFirst();
+        if(ret == -1 && this.numberMove() == 1) ret = this.moveSecound()
         if(ret == -1) ret = this.checkWinLine(2);
         if(ret == -1) ret = this.checkWinLine(1);
         if(ret == -1) ret = this.moveRandom();
