@@ -18,9 +18,15 @@ var eventUpdateStatisticPanel = () => {
     let drawNumber = parseInt(Statistics.getInstance().get(StatisticsStorage.DRAW));
     let loseNumber = parseInt(Statistics.getInstance().get(StatisticsStorage.LOSE));
     let sumNumber = winNumber + drawNumber + loseNumber;
-    let losePercent = ((drawNumber / sumNumber) * 100).toFixed();
+    let losePercent = ((loseNumber / sumNumber) * 100).toFixed();
     let drawPercent = ((drawNumber / sumNumber) * 100).toFixed();
-    let winPercent = 100 - parseInt(losePercent) - parseInt(drawPercent);
+    let winPercent = (100 - parseInt(losePercent) - parseInt(drawPercent)).toFixed();
+    if (losePercent == 'NaN')
+        losePercent = "0";
+    if (drawPercent == 'NaN')
+        drawPercent = "0";
+    if (winPercent == 'NaN')
+        winPercent = "0";
     win.innerHTML = winNumber.toString() + " (" + winPercent + "%)";
     draw.innerHTML = drawNumber.toString() + " (" + drawPercent + "%)";
     lose.innerHTML = loseNumber.toString() + " (" + losePercent + "%)";
