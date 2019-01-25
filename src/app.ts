@@ -17,14 +17,11 @@ board.boardCells.addCells(symbols);
 let boardTryAgain = new BoardTryAgain(tryAgain, board);
 
 var eventUpdateStatisticPanel = () => {
-    console.log("eventUpdateStatisticPanel");
     win.innerHTML = Statistics.getInstance().get(StatisticsStorage.WIN);
     draw.innerHTML = Statistics.getInstance().get(StatisticsStorage.DRAW);
     lose.innerHTML = Statistics.getInstance().get(StatisticsStorage.LOSE);
 }
 var eventResetStatisticPanel = () => {
-    console.log("eventResetStatisticPanel");
-    
     Statistics.getInstance().clear(StatisticsStorage.WIN);
     Statistics.getInstance().clear(StatisticsStorage.DRAW);
     Statistics.getInstance().clear(StatisticsStorage.LOSE);

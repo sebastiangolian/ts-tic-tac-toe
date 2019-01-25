@@ -4,6 +4,9 @@ export class BoardCell {
    private status: number = 0;
    private board: Board;
    private element: HTMLImageElement;
+   private nullSrc: string = "public/images/null.png";
+   private xSrc: string = "public/images/x.png";
+   private oSrc: string = "public/images/o.png";
 
    constructor(element: HTMLImageElement, board: Board) {
       this.element = element;
@@ -19,13 +22,13 @@ export class BoardCell {
       this.status = status;
 
       if (this.status == 0)
-         this.element.src = "images/null.png";
+         this.element.src = this.nullSrc;
 
       if (this.status == 1)
-         this.element.src = "images/x.png";
+         this.element.src = this.xSrc;
 
       if (this.status == 2)
-         this.element.src = "images/o.png";
+         this.element.src = this.oSrc;
    }
 
    reset(): void {
@@ -44,8 +47,8 @@ export class BoardCell {
    //event method
    eventClick = () => {
       if (this.status == 0) {
-         this.element.src = "images/x.png";
-         this.status = 1;
+         this.element.src = this.nullSrc;
+         this.setStatus(1);
          this.board.update();
       }
   }

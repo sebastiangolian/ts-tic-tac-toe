@@ -7,8 +7,9 @@
     "build": "tsc",
     "watch": "tsc --w",
     "rmdir": "rmdir /s /q \"public/js/classes\" \"public/js\"",
-    "clear": "npm run rmdir && npm run watch",
-    "deploy": "node scripts/deploy.js"
+    "clear": "npm run rmdir && npm run build",
+    "deploy": "node scripts/deploy.js",
+    "predeploy": "npm run clear"
   },
   "repository": {
     "type": "git",
