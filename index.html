@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="public/css/style.css" type="text/css">
+  </link>
+  <title>typescript-playground</title>
+</head>
+
+<body id="body">
+
+  <div class="row mt-2 justify-content-around">
+    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
+      <img src="public/images/logo.png" width="400" class="ml-90" />
+      <p class="text-primary mt-5" id="msg"></p>
+    </div>
+    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4 mt-5"></div>
+  </div>
+
+  <div class="row mt-2 justify-content-around">
+    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
+      <table>
+        <tr>
+          <td><img id="cell-1" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-2" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-3" class="symbols" src="public/images/null.png" /></td>
+        </tr>
+        <tr>
+          <td><img id="cell-4" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
+        </tr>
+        <tr>
+          <td><img id="cell-7" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-8" class="symbols" src="public/images/null.png" /></td>
+          <td><img id="cell-9" class="symbols" src="public/images/null.png" /></td>
+        </tr>
+      </table>
+      <button id="try-again" type="button" class="btn btn-primary mt-1">Try again</button>
+    </div>
+    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
+      <p class="text-primary" id="msg">STATISTICS</p>
+      <p class="text-primary" id="msg">Win: <span id="win"></span></p>
+      <p class="text-primary" id="msg">Draw: <span id="draw"></span></p>
+      <p class="text-primary" id="msg">Lose: <span id="lose"></span></p>
+      <button id="reset-statistics" type="button" class="btn btn-primary">Reset statistics</button>
+    </div>
+  </div>
+  <footer class="page-footer font-small btn-primary pt-4 mt-2">
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-11 col-sm-11 col-md-11 col-lg-9 col-xl-9">
+          <p><a href="https://github.com/sebastiangolian/ts-tic-tac-toe">ts-tic-tac-toe</a></p>
+        </div>
+        <div class="col-11 col-sm-11 col-md-11 col-lg-3 col-xl-3">
+          <p><a href="https://github.com/sebastiangolian">sebastiangolian@gmail.com</a> | 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
+<script type="module" src="public/js/app.js"></script>
+
+
+</html>
