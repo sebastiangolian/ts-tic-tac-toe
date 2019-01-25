@@ -8,7 +8,7 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": false,
-    "outDir": "js",    
+    "outDir": "public/js",    
     //"outFile": "./dist/build.js",
     "baseUrl": ".",                              
   }
