@@ -1,9 +1,9 @@
-import { TicTacToeRulse } from "./TicTacToeRules.js";
+import { TicTacToeRules } from "./TicTacToeRules.js";
 export class CheckWin {
     constructor(statusCells) {
         this.statusCells = new Array();
         this.statusCells = statusCells;
-        this.winLines = TicTacToeRulse.getWinLines();
+        this.winLines = TicTacToeRules.getWinLines();
     }
     check() {
         let result = false;
