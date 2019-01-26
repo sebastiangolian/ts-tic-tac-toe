@@ -1,4 +1,4 @@
-export class TicTacToeRulse {
+export class TicTacToeRules {
     private static winLines: number[][] = [
         [0, 1, 2],
         [3, 4, 5],
@@ -12,6 +12,6 @@ export class TicTacToeRulse {
 
     public static getWinLines()
     {
-        return TicTacToeRulse.winLines;
+        return TicTacToeRules.winLines;
     }
 }

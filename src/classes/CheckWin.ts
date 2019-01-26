@@ -1,4 +1,4 @@
-import { TicTacToeRulse } from "./TicTacToeRules.js";
+import { TicTacToeRules } from "./TicTacToeRules.js";
 
 export class CheckWin {
     private statusCells: boolean[] = new Array()
@@ -6,7 +6,7 @@ export class CheckWin {
 
     constructor(statusCells: boolean[]) {
         this.statusCells = statusCells;
-        this.winLines = TicTacToeRulse.getWinLines();
+        this.winLines = TicTacToeRules.getWinLines();
     }
 
     check(): boolean {

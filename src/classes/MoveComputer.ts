@@ -1,4 +1,4 @@
-import { TicTacToeRulse } from "./TicTacToeRules.js";
+import { TicTacToeRules } from "./TicTacToeRules.js";
 
 export class MoveComputer {
     private cellStates: number[] = new Array();
@@ -7,7 +7,7 @@ export class MoveComputer {
     constructor(cellStates: number[]) 
     {
         this.cellStates = cellStates;
-        this.winLines = TicTacToeRulse.getWinLines();
+        this.winLines = TicTacToeRules.getWinLines();
     }
 
     numberMove(): number 
@@ -19,7 +19,7 @@ export class MoveComputer {
         return numberTwo.length;
     }
 
-    isPosibleMove(): boolean
+    isPossibleMove(): boolean
     {
         let ret: boolean = 
         !this.cellStates.every((element) => 	
@@ -34,27 +34,34 @@ export class MoveComputer {
     {
         let ret:number = -1;
 
-        do { 
-            let possibleMove:number[] = [0, 2, 6, 8]; 
-            let rand = possibleMove[Math.floor(Math.random() * possibleMove.length)];
-            if(this.cellStates[rand] == 0){
-                ret = rand;
-            }
-        } while(ret == -1);
-            
+        if(this.cellStates[4] == 0)
+        {
+            ret = 4;
+        }
+        else
+        {
+            do { 
+                let possibleMove:number[] = [0, 2, 6, 8]; 
+                let rand = possibleMove[Math.floor(Math.random() * possibleMove.length)];
+                if(this.cellStates[rand] == 0){
+                    ret = rand;
+                }
+            } while(ret == -1);
+        }
+ 
         return ret;
     }
 
-    moveSecound():number 
+    moveSecond():number 
     {
-        let posibleSecoundMove: number[][] = [
+        let possibleSecondMove: number[][] = [
             [0, 2],
             [0, 6],
             [2, 8],
             [6, 8]
         ];
         let ret:number = -1;
-        posibleSecoundMove.forEach((line) => {
+        possibleSecondMove.forEach((line) => {
             let check = 0;
             line.forEach((value) => {
                 if(this.cellStates[value] == 2){
@@ -92,7 +99,7 @@ export class MoveComputer {
                 check = true;
             }
 
-            if(!this.isPosibleMove()){
+            if(!this.isPossibleMove()){
                 check = false;
             }
         } while(check);
@@ -128,8 +135,8 @@ export class MoveComputer {
     {
         let ret:number = -1;
         if(ret == -1 && this.numberMove() == 0) ret = this.moveFirst();
-        if(ret == -1 && this.numberMove() == 1) ret = this.moveSecound()
         if(ret == -1) ret = this.checkWinLine(2);
+        if(ret == -1 && this.numberMove() == 1) ret = this.moveSecond()
         if(ret == -1) ret = this.checkWinLine(1);
         if(ret == -1) ret = this.moveRandom();
         return ret;
