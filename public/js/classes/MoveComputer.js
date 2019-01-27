@@ -102,11 +102,11 @@ export class MoveComputer {
         if (ret == -1 && this.numberMove() == 0)
             ret = this.moveFirst();
         if (ret == -1)
-            ret = this.checkWinLine(2);
+            ret = this.checkWinLine(1);
         if (ret == -1 && this.numberMove() == 1)
             ret = this.moveSecond();
         if (ret == -1)
-            ret = this.checkWinLine(1);
+            ret = this.checkWinLine(2);
         if (ret == -1)
             ret = this.moveRandom();
         return ret;
