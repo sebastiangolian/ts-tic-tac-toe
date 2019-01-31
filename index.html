@@ -3,51 +3,48 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
-  <link rel="stylesheet" href="public/css/style.css" type="text/css"></link>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </link>
+  <link rel="stylesheet" href="public/css/style.css" type="text/css">
+  </link>
   <title>typescript-playground</title>
 </head>
-
-<body id="body">
-
-  <div class="row mt-2 justify-content-around">
-    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
-      <img src="public/images/logo.png" width="400" class="ml-90" />
-      <p class="text-primary mt-5" id="msg"></p>
+<body>
+  <header class="d-flex justify-content-center">
+    <img src="public/images/logo.png" width="400" />
+  </header>
+  <main class="container-fluid">
+    <div class="row d-flex justify-content-center">
+      <div>
+          <p class="text-primary" id="msg"></p>
+          <table>
+            <tr>
+              <td><img id="cell-1" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-2" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-3" class="symbols" src="public/images/null.png" /></td>
+            </tr>
+            <tr>
+              <td><img id="cell-4" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
+            </tr>
+            <tr>
+              <td><img id="cell-7" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-8" class="symbols" src="public/images/null.png" /></td>
+              <td><img id="cell-9" class="symbols" src="public/images/null.png" /></td>
+            </tr>
+          </table>
+          <button id="try-again" type="button" class="btn btn-primary mt-1">Try again</button>
+      </div>
+      <div class="statistics">
+          <p class="text-primary" id="msg">Win: <span id="win"></span></p>
+          <p class="text-primary" id="msg">Draw: <span id="draw"></span></p>
+          <p class="text-primary" id="msg">Lose: <span id="lose"></span></p>
+          <button id="reset-statistics" type="button" class="btn btn-primary">Reset statistics</button>
+      </div>
     </div>
-    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4 mt-5"></div>
-  </div>
-
-  <div class="row mt-2 justify-content-around">
-    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
-      <table>
-        <tr>
-          <td><img id="cell-1" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-2" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-3" class="symbols" src="public/images/null.png" /></td>
-        </tr>
-        <tr>
-          <td><img id="cell-4" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-5" class="symbols" src="public/images/null.png" /></td>
-        </tr>
-        <tr>
-          <td><img id="cell-7" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-8" class="symbols" src="public/images/null.png" /></td>
-          <td><img id="cell-9" class="symbols" src="public/images/null.png" /></td>
-        </tr>
-      </table>
-      <button id="try-again" type="button" class="btn btn-primary mt-1">Try again</button>
-    </div>
-    <div class="col-11 col-sm-11 col-md-11 col-lg-4 col-xl-4">
-      <p class="text-primary" id="msg">STATISTICS</p>
-      <p class="text-primary" id="msg">Win: <span id="win"></span></p>
-      <p class="text-primary" id="msg">Draw: <span id="draw"></span></p>
-      <p class="text-primary" id="msg">Lose: <span id="lose"></span></p>
-      <button id="reset-statistics" type="button" class="btn btn-primary">Reset statistics</button>
-    </div>
-  </div>
-  <footer class="page-footer font-small btn-primary pt-3 mt-2">
+  </main>
+  <footer class="bg-primary text-light pt-3 mt-2 fixed-bottom">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-11 col-sm-11 col-md-11 col-lg-9 col-xl-9">
