@@ -7,13 +7,13 @@ npm install
 ```
 
 ## Scripts
-Watch project
+Build project
 ```bash
-npm run watch
+npm run build
 ```
 Watch project
 ```bash
-npm run build
+npm run watch
 ```
 Clear temporary files
 ```bash
@@ -21,5 +21,5 @@ npm run clear
 ```
 Deploy files in gh-pages
 ```bash
-npm run clear
+npm run deploy
 ```
