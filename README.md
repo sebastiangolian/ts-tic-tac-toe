@@ -8,12 +8,12 @@ This is game tic-tac-toe in typescript
 ```bash
 npm install
 ```
-
-## Scripts
 Build project
 ```bash
 npm run build
 ```
+
+## Scripts
 Watch project
 ```bash
 npm run watch
