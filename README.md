@@ -1,6 +1,9 @@
 # ts-tic-tac-toe
 This is game tic-tac-toe in typescript
 
+## Test app
+[tic-tac-toe](https://sebastiangolian.github.io/ts-tic-tac-toe/)
+
 ## Getting started
 ```bash
 npm install
