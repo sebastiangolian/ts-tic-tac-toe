@@ -30,6 +30,6 @@
   "devDependencies": {
     "fs-extra": "^7.0.1",
     "gh-pages": "^2.0.1",
-    "lodash": "^4.17.14"
+    "lodash": "^4.17.19"
   }
 }
